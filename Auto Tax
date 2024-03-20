@@ -1,6 +1,6 @@
 ```js
 
-let autotax = ['حط ايدي الاتشانل'];
+let autotax = ['1219904181742338059'];
 
 client.on("messageCreate", message => {
  if(message.channel.type === "dm" || 
