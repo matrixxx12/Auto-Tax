@@ -1,0 +1,42 @@
+```js
+let linechls = ['1215299962854711347'];
+
+client.on("messageCreate", message => {
+ if(message.channel.type === "dm" || 
+  message.author.bot) return
+  
+if(linechls.includes(message.channel.id)){   
+ message.delete()
+  
+let args = message.content.split(',')
+  
+let button = new MessageActionRow()
+      .addComponents(
+            new MessageButton()
+      .setStyle('LINK')
+      .setLabel('Profile')
+      .setURL(`https://discord.com/users/${message.author.id}`))
+
+  let embed = new MessageEmbed()
+   .setAuthor(`${message.author.username}`, message.author.displayAvatarURL({ dynamic: true }))
+
+.setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+    
+     .addFields({name: `> Title:`, value: `Thanks for ${message.channel.name} and using ${message.guild.name}\n`, inline: false })
+    
+    .addFields({name: `> Description:`, value: `${args} \n`, inline: false })
+
+.setColor(message.guild.me.displayColor)
+
+    .setImage(`حط لينك صوره`)
+    
+  .setTimestamp()
+  
+  message.channel.send({embeds: [embed], components: [button] }).catch((err) => {
+   console.log(err.message)
+   })
+   }
+});
+```
+
+```# Description: Suggestion / اقتراح```
